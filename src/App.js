@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Content from './Componets/Content';
+import Header from './Componets/Header'
+import Footer from './Componets/Footer';
+import { Container } from 'react-bootstrap';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Content />,
+    },
+    {
+      path: "/admin",
+      element: <div>You are successfully logged in. Welcome to admin page.</div>,
+    },
+  ]);
+  
+  return <RouterProvider router={router} />
 }
-
 export default App;
